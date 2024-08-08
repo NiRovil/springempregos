@@ -3,6 +3,7 @@ package com.empregos.projeto.entities;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "experience")
@@ -13,23 +14,35 @@ public class Experience {
     @Column(name = "experience_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "candidate_user", referencedColumnName = "candidate_user")
-    private String user;
+    @ManyToOne
+    @JoinColumn(name = "experience_candidate_user")
+    private Candidate candidate;
 
-    @Column(name = "candidate_pastExperience")
+    @Column(name = "experience_pastExperience")
     private String pastExperience;
 
-    @Column(name = "candidate_actualExperience")
+    @Column(name = "experience_actualExperience")
     private Boolean actualExperience;
 
-    @Column(name = "candidate_startDate")
+    @Column(name = "experience_startDate")
     private Date startDate;
 
-    @Column(name = "candidate_endDate")
+    @Column(name = "experience_endDate")
     private Date endDate;
 
-    @Column(name = "candidate_jobDescription")
+    @Column(name = "experience_jobDescription")
     private String jobDescription;
+
+    public Experience(){}
+
+    public Experience(Long id, Candidate candidate, String pastExperience, Boolean actualExperience, Date startDate, Date endDate, String jobDescription) {
+        this.id = id;
+        this.candidate = candidate;
+        this.pastExperience = pastExperience;
+        this.actualExperience = actualExperience;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.jobDescription = jobDescription;
+    }
 
 }

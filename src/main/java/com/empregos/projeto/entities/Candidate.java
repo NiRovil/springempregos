@@ -23,4 +23,13 @@ public class Candidate {
     @OneToMany(mappedBy = "candidate", fetch = FetchType.LAZY)
     private List<Experience> listExperiences;
 
+    public Candidate(){}
+
+    public Candidate(String user, String name, String salaryExpectation, String education) {
+        this.user = user;
+        this.name = name;
+        this.salaryExpectation = salaryExpectation;
+        this.education = education;
+    }
+
 }
