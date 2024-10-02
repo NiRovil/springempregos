@@ -32,4 +32,12 @@ public class Candidate {
         this.education = education;
     }
 
+    public String getUser(){ return this.user; }
+
+    public String getSalary(){ return this.salaryExpectation; }
+
+    public String getName(){ return this.name; }
+
+    public String getEducation() { return this.education; }
+
 }

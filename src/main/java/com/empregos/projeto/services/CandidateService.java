@@ -1,6 +1,7 @@
 package com.empregos.projeto.services;
 
 import com.empregos.projeto.entities.Candidate;
+import org.jetbrains.annotations.NotNull;
 import com.empregos.projeto.repositories.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,10 @@ public class CandidateService {
 
     public List<Candidate> getAll(){
         return repository.findAll();
+    }
+
+    public Candidate saveOrUpdateCandidate(@NotNull Candidate candidate){
+        return repository.save(candidate);
     }
 
 }
